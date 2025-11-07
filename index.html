@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Treasure Hunt</title>
+
+    <!-- A-Frame & AR.js -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.3/aframe/build/aframe-ar-nft.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="ui">
+      <h2 id="clue">🔍 Find the hidden treasure marker!</h2>
+      <h3 id="message"></h3>
+    </div>
+
+    <!-- AR Scene -->
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- Marker just triggers detection -->
+      <a-marker preset="hiro" id="treasureMarker"></a-marker>
+
+      <!-- Actual treasure (controlled by JS) -->
+      <a-image
+        id="treasureImage"
+        src="assets/granny.jpg"
+        position="0 0 -3"
+        width="1"
+        height="1"
+        visible="false"
+      >
+      </a-image>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script src="script.js"></script>
+  </body>
+</html>
