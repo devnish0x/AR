@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Treasure Prototype</title>
+    <title>Treasure Found Prototype</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- A-Frame + AR.js -->
@@ -14,17 +14,20 @@
         margin: 0;
         overflow: hidden;
       }
+
       #message {
         position: fixed;
-        top: 10px;
+        top: 15px;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.6);
-        color: #fff;
+        background: rgba(0, 0, 0, 0.7);
+        color: gold;
+        font-size: 1.2rem;
+        font-weight: bold;
         padding: 10px 20px;
-        border-radius: 10px;
-        font-family: sans-serif;
+        border-radius: 12px;
         display: none;
+        z-index: 2;
       }
     </style>
   </head>
@@ -33,11 +36,28 @@
     <div id="message">🎉 Treasure Found!</div>
 
     <a-scene embedded arjs="sourceType: webcam;">
-      <!-- your custom pattern marker -->
-      <a-marker type="pattern" url="marker.patt" id="treasureMarker">
-        <!-- 3D object -->
-        <a-box position="0 0.5 0" material="color: gold; metalness: 0.8;"></a-box>
-        <a-text value="💎 Treasure 💎" position="0 1 0" align="center" color="gold"></a-text>
+      <!-- built-in HIRO marker -->
+      <a-marker preset="hiro" id="treasureMarker">
+        <!-- 3D board -->
+        <a-plane
+          position="0 0.5 0"
+          rotation="-90 0 0"
+          width="2"
+          height="1"
+          color="#111"
+          material="opacity: 0.9; side: double;"
+        ></a-plane>
+
+        <!-- Text on the board -->
+        <a-text
+          value="here will be our clue"
+          position="0 0.55 0.01"
+          rotation="-90 0 0"
+          align="center"
+          color="lime"
+          width="4"
+          shader="msdf"
+        ></a-text>
       </a-marker>
 
       <a-entity camera></a-entity>
