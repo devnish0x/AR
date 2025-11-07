@@ -1,4 +1,4 @@
-/* Basic reset for responsive behavior */
+/* Basic reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,15 +15,21 @@ body {
     color: white;
 }
 
+/* Removed the a-scene[embedded] style, 
+  as it's no longer needed.
+*/
+
 #ui {
     position: fixed;
     top: 10px;
     left: 0;
     width: 100%;
     text-align: center;
-    z-index: 10;
+    z-index: 10; /* Ensures UI is on top of the AR scene */
     padding: 0 10px;
 }
+
+/* Removed the permission reminder style */
 
 #clue {
     background: rgba(0, 128, 0, 0.7);
