@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- This viewport tag is essential for mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>AR Treasure Hunt</title>
 
     <!-- A-Frame & AR.js -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.3/aframe/build/aframe-ar-nft.js"></script>
 
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="style.css" />
-  </head>
+</head>
 
-  <body>
-  <!-- UI elements for instructions and messages -->
+<body>
+    <!-- UI elements for instructions and messages -->
     <div id="ui">
         <h2 id="clue">🔍 Find the hidden 'Hiro' marker!</h2>
         <h3 id="message">Point your camera at the marker...</h3>
@@ -21,20 +23,17 @@
 
     <!-- 
       AR Scene 
-      - Removed 'embedded' to make it full-screen.
-      - Added 'facingMode: environment' to prefer the rear camera on mobile.
-      - Added 'debugUIEnabled: false' to hide the debug window for a cleaner user experience.
+      - Removed 'facingMode' to make it compatible with laptop webcams.
+      - Kept 'debugUIEnabled: false' for a cleaner view.
     -->
-    <a-scene arjs="sourceType: webcam; facingMode: environment; debugUIEnabled: false;">
+    <a-scene arjs="sourceType: webcam; debugUIEnabled: false;">
 
         <!-- Marker that triggers the detection -->
         <a-marker preset="hiro" id="treasureMarker"></a-marker>
 
         <!-- 
           Actual treasure
-          - Changed src to a placeholder. You can replace this with your image URL.
-          - Positioned it slightly above the marker (0 0.5 0).
-          - Added a fallback image in case the src fails to load.
+          - Using your new image URL from sketchok.com
         -->
         <a-image
             id="treasureImage"
@@ -48,16 +47,11 @@
         >
         </a-image>
 
-        <!-- 
-          AR.js requires a camera entity. 
-          The 'look-controls' component is automatically added by A-Frame 
-          but we can disable it for a more stable AR view if needed.
-          'wasd-controls' is also disabled as it's not for mobile.
-        -->
+        <!-- AR.js requires a camera entity. -->
         <a-entity camera wasd-controls-enabled="false"></a-entity>
     </a-scene>
 
-
+    <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
