@@ -7,7 +7,7 @@
 
             marker.addEventListener("markerFound", () => {
                 console.log("Marker found!");
-                message.textContent = "🎉 You found the treasure!";
+                message.textContent = "🎉 You found the treasure!yeah";
 
                 // Show treasure
                 treasure.setAttribute("visible", true);
