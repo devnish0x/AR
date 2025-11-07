@@ -13,10 +13,10 @@
   </head>
 
   <body>
-    <!-- UI elements for instructions and messages -->
+  <!-- UI elements for instructions and messages -->
     <div id="ui">
-      <h2 id="clue">🔍 Find the hidden 'Hiro' marker!</h2>
-      <h3 id="message">Point your camera at the marker...</h3>
+        <h2 id="clue">🔍 Find the hidden 'Hiro' marker!</h2>
+        <h3 id="message">Point your camera at the marker...</h3>
     </div>
 
     <!-- 
@@ -25,38 +25,38 @@
       - Added 'facingMode: environment' to prefer the rear camera on mobile.
       - Added 'debugUIEnabled: false' to hide the debug window for a cleaner user experience.
     -->
-    <a-scene
-      arjs="sourceType: webcam; facingMode: environment; debugUIEnabled: false;"
-    >
-      <!-- Marker that triggers the detection -->
-      <a-marker preset="hiro" id="treasureMarker"></a-marker>
+    <a-scene arjs="sourceType: webcam; facingMode: environment; debugUIEnabled: false;">
 
-      <!-- 
+        <!-- Marker that triggers the detection -->
+        <a-marker preset="hiro" id="treasureMarker"></a-marker>
+
+        <!-- 
           Actual treasure
           - Changed src to a placeholder. You can replace this with your image URL.
           - Positioned it slightly above the marker (0 0.5 0).
           - Added a fallback image in case the src fails to load.
         -->
-      <a-image
-        id="treasureImage"
-        src="https://placehold.co/200x200/E8117F/white?text=TREASURE!"
-        onerror="this.src='https://placehold.co/200x200/E8117F/white?text=TREASURE!'"
-        position="0 0.5 0"
-        width="1"
-        height="1"
-        visible="false"
-        animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 700; easing: easeInOutSine;"
-      >
-      </a-image>
+        <a-image
+            id="treasureImage"
+            src="assets/granny.jpg"
+            onerror="this.src='https://placehold.co/200x200/E8117F/white?text=TREASURE!'"
+            position="0 0.5 0"
+            width="1"
+            height="1"
+            visible="false"
+            animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 700; easing: easeInOutSine;"
+        >
+        </a-image>
 
-      <!-- 
+        <!-- 
           AR.js requires a camera entity. 
           The 'look-controls' component is automatically added by A-Frame 
           but we can disable it for a more stable AR view if needed.
           'wasd-controls' is also disabled as it's not for mobile.
         -->
-      <a-entity camera wasd-controls-enabled="false"></a-entity>
+        <a-entity camera wasd-controls-enabled="false"></a-entity>
     </a-scene>
+
 
     <script src="script.js"></script>
   </body>
